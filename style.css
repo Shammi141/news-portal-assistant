@@ -12,7 +12,10 @@
 
 /* category */
 .category-link{
-    margin-right: 50px;
+    margin-right: 52px;
+    text-decoration: none;
+    color: #000000;
+    margin-bottom: 50px;
 }
 
 
