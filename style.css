@@ -1,0 +1,18 @@
+/* navbar */
+.header-text{
+    font-size: larger;
+    font-weight: 500;
+}
+.text-latest{
+    background-color: rgb(72, 72, 239);
+    color: #ffffff;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+/* category */
+.category-link{
+    margin-right: 50px;
+}
+
+
