@@ -11,11 +11,16 @@
 }
 
 /* category */
-.category-links-design{
-    list-style-type: none;
 
+.liDesign{
+    font-weight: 600;
+    width: 150px;
+    display: inline;
+    margin: 22px;
 }
-
+.liDesign:hover{
+    color: blue;
+}
 
 
 

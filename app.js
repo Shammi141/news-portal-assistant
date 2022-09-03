@@ -10,6 +10,7 @@ const displayCategories = categories =>{
     const categoriesContainer = document.getElementById('category-names');
     categories.forEach(category => {
         const categoryLi = document.createElement('li');
+        categoryLi.classList.add('liDesign')
         categoryLi.innerHTML = `
         <a onclick = "newsDetails('${category.category_id}')">${category.category_name}</a>
         `
@@ -45,7 +46,7 @@ const displayNewsDetails = (newses) =>{
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('row')
         newsDiv.innerHTML = `
-                <div class="col-md-3">
+            <div class="col-md-3">
                 <img src="${news.image_url}" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-9">
@@ -67,7 +68,7 @@ const displayNewsDetails = (newses) =>{
                             <span>${news.total_view ? news.total_view : 'No Views'} M</span>
                         </div>
 
-                        <div onclick = "showAllInfo()" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#newsDetailModal">See Details</div>
+                        <div onclick = "showNewsInModal(${news._id})" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#newsDetailModal">See Details</div>
                     </div>
                 </div>
             </div>
@@ -77,14 +78,18 @@ const displayNewsDetails = (newses) =>{
     })
 }
 
-const showAllInfo = () =>{
+const showNewsInModal = async (id) =>{
+    const url = `https://openapi.programming-hero.com/api/news/${id}`
+    const res = await fetch(url);
+    const data = await res.json();
+    displayNewsInModal(data.data);
+}
 
+const displayNewsInModal = news =>{
+    
 }
 
 
 loadCategories();
-
-
-
 
 
