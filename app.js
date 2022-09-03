@@ -63,17 +63,22 @@ const displayNewses = (newses, categoryId) =>{
                             <p></p>
                         </div>
                         
-                        <div onclick = "showAllInfo()" class="btn btn-primary">Show All</div>
+                        <div onclick = "showAllInfo()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal">Show All</div>
                     </div>
                 </div>
             </div>
 
         `;
         newsesContainer.appendChild(newsDiv);
+
+
     });
+
+    const showAllInfo = () => {
+
+    }
 }
 
-const showAllInfo = 
 
 loadNewses();
 
