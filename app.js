@@ -11,12 +11,12 @@ const displayCategories = categories => {
     const categoriesContainer = document.getElementById('category-names');
     categories.forEach(category => {
         const categoryLi = document.createElement('li');
-        categoryLi.classList.add('liDesign')
+        categoryLi.classList.add('liDesign');
         categoryLi.innerHTML = `
         <a onclick = "newsDetails('${category.category_id}')">${category.category_name}</a>
         `;
         categoriesContainer.appendChild(categoryLi);
-    })
+    });
 
 
 }
@@ -32,15 +32,10 @@ const newsDetails = async (categoryId) => {
 }
 
 
-
 // display part 
 const displayNewsDetails = (newses) => {
     const newsDetails = document.getElementById('news-container');
     newsDetails.innerHTML = ``;
-
-    //sorting news by viewing 
-
-
 
     //disply found items number
     const items = newses.length;
@@ -60,12 +55,11 @@ const displayNewsDetails = (newses) => {
     }
 
 
-
+    //shorting by view
     const dataSort = newses.sort((first, second) => {
         return first.total_view - second.total_view;
     });
     const reverseDataSort = dataSort.reverse();
-
 
 
     // display newses 
@@ -151,7 +145,6 @@ const displayNewsInModal = news => {
             </div>
     `
 }
-
 
 loadCategories();
 
