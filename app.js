@@ -16,6 +16,7 @@ const displayCategories = categories =>{
         `
         categoriesContainer.appendChild(categoryLi);
     })
+
 }
 
 const newsDetails =async (categoryId) => {
@@ -31,6 +32,16 @@ const displayNewsDetails = (newses) =>{
     const newsDetails = document.getElementById('news-container');
     newsDetails.innerHTML = ``;
 
+
+    //disply found items number
+    const items = newses.length;
+    const foundItems = document.getElementById('found-items');
+    foundItems.innerHTML = `
+        ${items} items founds for category 
+    `;
+    
+
+
     // display no news found
     const noNewses = document.getElementById('not-found');
     if(newses.length === 0){
@@ -44,7 +55,7 @@ const displayNewsDetails = (newses) =>{
     newses.forEach(news =>{
 
         const newsDiv = document.createElement('div');
-        newsDiv.classList.add('row')
+        newsDiv.classList.add('row');
         newsDiv.innerHTML = `
             <div class="col-md-3">
                 <img src="${news.image_url}" class="img-fluid rounded-start" alt="...">
