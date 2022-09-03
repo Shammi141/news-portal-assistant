@@ -1,4 +1,4 @@
-// category part 
+// loading category data
 const loadCategories = async() =>{
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     const res = await fetch(url);
@@ -6,6 +6,7 @@ const loadCategories = async() =>{
     displayCategories(data.data.news_category);
 }
 
+//display categoris name 
 const displayCategories = categories =>{
     const categoriesContainer = document.getElementById('category-names');
     categories.forEach(category => {
@@ -20,11 +21,16 @@ const displayCategories = categories =>{
 }
 
 const newsDetails =async (categoryId) => {
+
+    //start spinner
+    toggleSpinner(true);
+
     const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`;
     const res = await fetch(url);
     const data = await res.json();
     displayNewsDetails(data.data);
 }
+
 
 
 // display part 
@@ -40,7 +46,6 @@ const displayNewsDetails = (newses) =>{
         ${items} items founds for category 
     `;
     
-
 
     // display no news found
     const noNewses = document.getElementById('not-found');
@@ -86,9 +91,24 @@ const displayNewsDetails = (newses) =>{
         `;
 
         newsDetails.appendChild(newsDiv);
-    })
+    });
+
+    //stop loader
+    toggleSpinner(false);
+
 }
 
+const toggleSpinner = isLoading =>{
+    const loaderSection = document.getElementById('loader');
+    if(isLoading){
+        loaderSection.classList.remove('d-none');
+    }
+    else{
+        loaderSection.classList.add('d-none');
+    }
+}
+
+// showing information details through a modal 
 const showNewsInModal = async (id) =>{
     const url = `https://openapi.programming-hero.com/api/news/${id}`
     const res = await fetch(url);
