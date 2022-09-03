@@ -37,12 +37,9 @@ const loadNewses = async (categoryId) =>{
 }
 
 const displayNewses = (newses, categoryId) =>{
-    //console.log(categoryId);
+    console.log(categoryId);
 
-    //display categoryId's matching news
-    // if (categoryId === ${newses.category_id}){
-
-    // }
+    
 
     const newsesContainer = document.getElementById('news-container');
     newses.forEach(news => {
@@ -55,7 +52,7 @@ const displayNewses = (newses, categoryId) =>{
             <div class="col-md-9">
                 <div class="card-body">
                     <h5 class="card-title">${news.title}</h5>
-                    <p class="card-text">${news.details.slice(0,250)}</p>
+                    <p class="card-text">${news.details.slice(0,200)}</p>
                     
                     <div class="d-flex flex-row flex justify-content-between">
                         <div class="d-flex"> 
@@ -71,7 +68,7 @@ const displayNewses = (newses, categoryId) =>{
                             <span>${news.total_view}</span>
                         </div>
 
-                        <div onclick = "showAllInfo()" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#phoneDetailModal">Show Details</div>
+                        <div onclick = "showAllInfo()" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#newsDetailModal">Show Details</div>
                     </div>
                 </div>
             </div>

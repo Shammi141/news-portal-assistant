@@ -25,4 +25,13 @@
     border-radius: 50%;
 }
 
+/* footer design  */
+.design-footer{
+    height: 80px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+}
+
+
 
