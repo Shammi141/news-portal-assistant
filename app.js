@@ -29,6 +29,17 @@ const newsDetails =async (categoryId) => {
 const displayNewsDetails = (newses) =>{
     const newsDetails = document.getElementById('news-container');
     newsDetails.innerHTML = ``;
+
+    // display no news found
+    const noNewses = document.getElementById('not-found');
+    if(newses.length === 0){
+        noNewses.classList.remove('d-none');
+    }
+    else{
+        noNewses.classList.add('d-none');
+    }
+
+    // display newses 
     newses.forEach(news =>{
 
         const newsDiv = document.createElement('div');
@@ -66,6 +77,9 @@ const displayNewsDetails = (newses) =>{
     })
 }
 
+const showAllInfo = () =>{
+
+}
 
 
 loadCategories();

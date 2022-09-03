@@ -12,7 +12,8 @@
 
 /* category */
 .category-links-design{
-    
+    list-style-type: none;
+
 }
 
 
@@ -41,7 +42,10 @@
     color: #ffffff;
     text-align: center;
 }
-
+.footer-div{
+    height: 100%;
+    padding-top: 90px;
+}
 
 
 
