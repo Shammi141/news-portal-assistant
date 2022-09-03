@@ -37,7 +37,7 @@ const loadNewses = async (categoryId) =>{
 }
 
 const displayNewses = (newses, categoryId) =>{
-    console.log(categoryId);
+    //console.log(categoryId);
 
     //display categoryId's matching news
     // if (categoryId === ${newses.category_id}){
@@ -57,13 +57,21 @@ const displayNewses = (newses, categoryId) =>{
                     <h5 class="card-title">${news.title}</h5>
                     <p class="card-text">${news.details.slice(0,250)}</p>
                     
-                    <div>
-                        <div> 
-                            <p></p>
-                            <p></p>
+                    <div class="d-flex flex-row flex justify-content-between">
+                        <div class="d-flex"> 
+                            <img class="author-img" src="${news.author.img}" alt="...">
+                            <div class= "d-flex flex-column ms-2">
+                                <span>${news.author.name}</span>
+                                <span>${news.author.published_date}</span>
+                            </div>
                         </div>
-                        
-                        <div onclick = "showAllInfo()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal">Show All</div>
+
+                        <div>
+                            <i class ="fa-regular fa-eye"></i>
+                            <span>${news.total_view}</span>
+                        </div>
+
+                        <div onclick = "showAllInfo()" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#phoneDetailModal">Show Details</div>
                     </div>
                 </div>
             </div>
